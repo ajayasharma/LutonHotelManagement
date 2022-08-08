@@ -2,6 +2,9 @@ package BusinessLayer;
 // This class uses the user model to receive and send data to the database layer
 // This class uses the user model to receive data from the frontend layer
 import Models.User;
+
+import java.util.ArrayList;
+
 import DatabaseLayer.DLUser;
 import Helper.InputException;
 
@@ -48,4 +51,41 @@ public class BLUser {
 		}
 	}
 	
+	public User update() throws Exception {
+		// This function saves the user detail to database and returns the user object after saving
+		try {
+			DLUser dlUser = new DLUser(this.user);
+			return dlUser.update();
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	
+	public void delete() throws Exception {
+		// This function saves the user detail to database and returns the user object after saving
+		try {
+			DLUser dlUser = new DLUser(this.user);
+			dlUser.delete();
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	
+	public ArrayList<User> getAllUser() throws Exception {
+		try {
+			DLUser dlUser = new DLUser(this.user);
+			return dlUser.getAllUser();
+		}catch(Exception e) {
+			throw e;
+		}
+	}
+	
+	public ArrayList<User> searchUser(String[] keys, String[] values) throws Exception{
+		try {
+			DLUser dlUser = new DLUser(this.user);
+			return dlUser.searchUser(keys, values);
+		}catch(Exception e) {
+			throw e;
+		}
+	}
 }

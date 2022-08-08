@@ -1,11 +1,8 @@
 package FrontendLayer;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
-import java.awt.GridLayout;
 import java.awt.FlowLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -76,7 +73,11 @@ public class Dashboard {
 					user = blUser.save();
 					JOptionPane.showMessageDialog(null, user.toString());
 					
-				}catch(Exception ex) {
+				}
+				catch(InputException ex) {
+					JOptionPane.showMessageDialog(null, ex.getMessage());
+				}
+				catch(Exception ex) {
 					JOptionPane.showMessageDialog(null, ex.getMessage());
 				}
 			}
